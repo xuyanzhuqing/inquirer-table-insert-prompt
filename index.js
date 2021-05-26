@@ -6,6 +6,10 @@ const chalk = require("chalk")
 const { table } = require("table")
 const figures = require("figures")
 
+const normalizeString = (input) => {
+  return input.replace(/\r\n/g, '\n');
+};
+
 class InquirerTableInsertPrompt extends Base {
   constructor(questions, rl, answers) {
     super(questions, rl, answers);
@@ -82,8 +86,11 @@ class InquirerTableInsertPrompt extends Base {
               this.render()
             return
           default:
-            this.values[this.pointer][this.horizontalPointer].push(value)
-            this.render()
+            // 禁止输入控制字符
+            if (!/[\u0001-\u0006\u0008\u0009\u000B-\u001A]/.test(normalizeString(String(value)))) {
+              this.values[this.pointer][this.horizontalPointer].push(value)
+              this.render()
+            }
         }
       }
     });
