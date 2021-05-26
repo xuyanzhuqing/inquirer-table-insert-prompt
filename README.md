@@ -9,6 +9,8 @@ npm install inquirer-table-insert-prompt
 
 ## Usage
 
+<img src="./instruction.gif">
+
 After registering the prompt, set any question to have type: "table" to make use of this prompt.
 
 The result will be an array, containing the value for each row.
