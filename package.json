@@ -1,6 +1,6 @@
 {
   "name": "inquirer-table-insert-prompt",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "for build a editable table in cli tools",
   "main": "index.js",
   "scripts": {
