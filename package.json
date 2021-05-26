@@ -1,0 +1,28 @@
+{
+  "name": "inquirer-table-insert-prompt",
+  "version": "1.0.0",
+  "description": "for build a editable table in cli tools",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://e.coding.net/vite-man/inquirer-table-insert-prompt/inquirer-table-insert-prompt.git"
+  },
+  "keywords": [
+    "inquirer-table-insert-prompt",
+    "eidtable",
+    "table"
+  ],
+  "author": "vite-man",
+  "license": "ISC",
+  "dependencies": {
+    "chalk": "^4.1.1",
+    "cli-cursor": "^3.1.0",
+    "figures": "^3.2.0",
+    "inquirer": "^8.1.0",
+    "rxjs": "^7.1.0",
+    "table": "^6.7.1"
+  }
+}
