@@ -9,7 +9,7 @@ npm install inquirer-table-insert-prompt
 
 ## Usage
 
-<img src="./instruction.gif">
+![instruction](https://pic.imgdb.cn/item/60af4c9608f74bc1593b9bcc.gif)
 
 After registering the prompt, set any question to have type: "table" to make use of this prompt.
 
