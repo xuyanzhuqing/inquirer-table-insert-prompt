@@ -17,6 +17,8 @@ The result will be an array, containing the value for each row.
 
 ```
 const { validator, required, filename } = require('inquirer-table-insert-prompt/validator')
+const Select = require('../index').Select;
+
 inquirer.registerPrompt("table", require('inquirer-table-insert-prompt'))
 
 inquirer
@@ -33,6 +35,11 @@ inquirer
         },
         {
           name: 'title'
+        },
+        {
+          name: 'which',
+          type: new Select(['default', 'form']),
+          default: 'default'
         },
         {
           name: 'exit',

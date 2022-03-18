@@ -1,4 +1,5 @@
 var inquirer = require('inquirer');
+const Select = require('../index').Select;
 const { validator, required, filename } = require('../validator')
 inquirer.registerPrompt("table", require('../index.js'))
 
@@ -16,6 +17,11 @@ inquirer
         },
         {
           name: 'title'
+        },
+        {
+          name: 'which',
+          type: new Select(['default', 'form']),
+          default: 'default'
         },
         {
           name: 'exit',

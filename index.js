@@ -46,6 +46,14 @@ class InquirerTableInsertPrompt extends Base {
             return typeof v.default !== 'undefined' ? v.default : false
           })
         }
+        
+        if (type.name === 'Select') {
+          return this.columns.map(m => {
+            const index = v.type.options.findIndex(m => m === v.default)
+            return typeof v.default !== 'undefined' ? Math.min(0, index)  : 0
+          })
+        }
+
         return this.columns.map(m => {
           return typeof v.default !== 'undefined' ? v.default : new type()
         })
@@ -150,6 +158,11 @@ class InquirerTableInsertPrompt extends Base {
       this.values[this.pointer][this.horizontalPointer] = !curr
       this.render();
     }
+
+    if (type && type.name === 'Select') {
+      this.values[this.pointer][this.horizontalPointer] = (curr + 1) % type.options.length;
+      this.render();
+    }
   }
 
   getCurrentValue () {
@@ -200,6 +213,9 @@ class InquirerTableInsertPrompt extends Base {
         if (row.type && row.type.name === 'Boolean') {
           const display = value ? figures.radioOn : figures.radioOff
           columnValues.push(`${isSelected ? "[" : " "} ${display} ${isSelected ? "]" : " "}`)
+        } else if (row.type && row.type.name === 'Select') {
+          const display = row.type.options[value]
+          columnValues.push(isSelected ? `[${display}]` : `${display}`);
         } else {
           columnValues.push(isSelected ? `[${value}]` : `${value}`);
         }
@@ -237,3 +253,5 @@ class InquirerTableInsertPrompt extends Base {
 }
 
 module.exports = InquirerTableInsertPrompt
+
+module.exports.Select = require('./types/select.js')
