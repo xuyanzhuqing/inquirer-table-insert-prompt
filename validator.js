@@ -33,7 +33,7 @@ exports.isInt = function (input) {
 }
 
 exports.filename = function (input) {
-  return /^[a-z]+-{0,}[a-z0-9]{0,}$/.test(input) || '仅允许数字字母中横线，数字不能开头'
+  return /^[a-z]+[a-z0-9-]{0,}$/.test(input) || '仅允许数字字母中横线，数字不能开头'
 }
 
 exports.IntRange = function ({ min, max }) {
